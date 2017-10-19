@@ -1,0 +1,125 @@
+<div class="row">
+  <div class="card col-10 ml-auto mr-auto">
+    <div class="row">
+      <div class="text-center col-lg-6 ml-auto">
+        Aby wczytać dane automatycznie, wyślij do MUDa:
+        <code class="stat-input-commands" ngxClipboard [cbContent]="'medytuj;cechy;ocen cechy;powstan'">
+          medytuj;cechy;ocen cechy;powstan
+          <span class="badge badge-secondary commands-copy-badge">
+            Kopiuj
+          </span>
+        </code>
+        i wklej odpowiedź obok.
+      </div>
+      <div class="col-6 mr-auto">
+        <textarea [(ngModel)]="textInput" (ngModelChange)="readTextInput($event)" id="stat-input-area"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="stat-inputs-row row no-gutters">
+  <div class="col-2">
+    <div class="btn-group-vertical stat-group">
+      <button type="button" class="btn btn-secondary"
+              *ngFor="let stat of strengthLevels"
+              [class.selected]="stat.id === charStats.strength.id"
+              (click)="charStats.strength = stat; calculate()">
+        {{stat.name}}
+      </button>
+    </div>
+    <div class="btn-group-vertical lack-group">
+      <button type="button" class="btn btn-secondary"
+              *ngFor="let stat of lackLevels"
+              [class.selected]="stat.id === charStats.strengthLack.id"
+              (click)="charStats.strengthLack = stat; calculate()">
+        {{stat.name}}
+      </button>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="btn-group-vertical stat-group">
+      <button type="button" class="btn btn-secondary"
+              *ngFor="let stat of dexterityLevels"
+              [class.selected]="stat.id === charStats.dexterity.id"
+              (click)="charStats.dexterity = stat; calculate()">
+        {{stat.name}}
+      </button>
+    </div>
+    <div class="btn-group-vertical lack-group">
+      <button type="button" class="btn btn-secondary"
+              *ngFor="let stat of lackLevels"
+              [class.selected]="stat.id === charStats.dexterityLack.id"
+              (click)="charStats.dexterityLack = stat; calculate()">
+        {{stat.name}}
+      </button>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="btn-group-vertical stat-group">
+      <button type="button" class="btn btn-secondary"
+              *ngFor="let stat of staminaLevels"
+              [class.selected]="stat.id === charStats.stamina.id"
+              (click)="charStats.stamina = stat; calculate()">
+        {{stat.name}}
+      </button>
+    </div>
+    <div class="btn-group-vertical lack-group">
+      <button type="button" class="btn btn-secondary"
+              *ngFor="let stat of lackLevels"
+              [class.selected]="stat.id === charStats.staminaLack.id"
+              (click)="charStats.staminaLack = stat; calculate()">
+        {{stat.name}}
+      </button>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="btn-group-vertical stat-group">
+      <button type="button" class="btn btn-secondary"
+              *ngFor="let stat of intellectLevels"
+              [class.selected]="stat.id === charStats.intellect.id"
+              (click)="charStats.intellect = stat; calculate()">
+        {{stat.name}}
+      </button>
+    </div>
+    <div class="btn-group-vertical lack-group">
+      <button type="button" class="btn btn-secondary"
+              *ngFor="let stat of lackLevels"
+              [class.selected]="stat.id === charStats.intellectLack.id"
+              (click)="charStats.intellectLack = stat; calculate()">
+        {{stat.name}}
+      </button>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="btn-group-vertical stat-group">
+      <button type="button" class="btn btn-secondary"
+              *ngFor="let stat of courageLevels"
+              [class.selected]="stat.id === charStats.courage.id"
+              (click)="charStats.courage = stat; calculate()">
+        {{stat.name}}
+      </button>
+    </div>
+    <div class="btn-group-vertical lack-group">
+      <button type="button" class="btn btn-secondary"
+              *ngFor="let stat of lackLevels"
+              [class.selected]="stat.id === charStats.courageLack.id"
+              (click)="charStats.courageLack = stat; calculate()">
+        {{stat.name}}
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="stats-output text-center card col-8 ml-auto mr-auto" *ngIf="charStatsResult">
+    <p>Suma podcech {{charStatsResult.totalSubstats}}, Poziom: {{getLevelDisplayName(charStatsResult.currentLevel)}}.</p>
+    <p>Brakuje {{charStatsResult.nextThreshold - charStatsResult.totalSubstats}} do
+      {{getLevelDisplayName(charStatsResult.nextLevel)}}.</p>
+  </div>
+</div>

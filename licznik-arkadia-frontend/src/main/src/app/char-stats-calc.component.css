@@ -1,0 +1,56 @@
+.stat-input-commands {
+  display: block;
+  border: 1px solid #dddddd;
+  background-color: #eeeeee;
+  margin: 0.2em;
+  cursor: pointer;
+}
+
+.commands-copy-badge {
+  display: none;
+  position: absolute;
+}
+
+.stat-input-commands:hover .commands-copy-badge {
+  display: initial;
+}
+
+#stat-input-area {
+  width: 100%;
+  height: 100%;
+  font-size: 0.8em;
+}
+
+.stat-inputs-row {
+  margin: 1rem auto;
+}
+
+.stat-inputs-row :first-child {
+  margin-left: auto;
+}
+
+.stat-inputs-row :last-child {
+  margin-right: auto;
+}
+
+.stat-inputs-row button {
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  line-height: 0.9;
+}
+
+.stat-inputs-row button.selected {
+  background-color: darkgrey;
+  color: dimgrey;
+}
+
+.stat-group, .lack-group {
+  width: 100%;
+  padding: 2px 5px;
+}
+
+.stats-output p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
