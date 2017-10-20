@@ -38,7 +38,7 @@ public class CharStatsControllerTest {
     @Test
     public void emptyRequestBodyGivesError() throws Exception {
         String json = "{}";
-        RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/char-stats")
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/api/char-stats")
                                                               .contentType(MediaType.APPLICATION_JSON_UTF8)
                                                               .content(json);
         // when
@@ -61,7 +61,7 @@ public class CharStatsControllerTest {
 
         String json = objectMapper.writeValueAsString(stats);
 
-        RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/char-stats")
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/api/char-stats")
                                                               .contentType(MediaType.APPLICATION_JSON_UTF8)
                                                               .content(json);
         // when
