@@ -3,6 +3,7 @@ import {CharStats} from './char-stats';
 import {CharStatsService} from './char-stats.service';
 import {CharStatsResult} from './char-stats-result';
 import {COURAGE_ALL, DEXTERITY_ALL, INTELLECT_ALL, LACK_ALL, STAMINA_ALL, STRENGTH_ALL} from './stat';
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'char-stats-calc',
@@ -22,6 +23,7 @@ export class CharStatsCalcComponent {
   charStats = new CharStats();
   charStatsResult: CharStatsResult;
   textInput: string;
+  private cookieName = 'char-stats';
 
   getLevelDisplayName(level: string): string {
     switch (level) {
@@ -56,17 +58,25 @@ export class CharStatsCalcComponent {
     }
   }
 
+  constructor(private charStatsService: CharStatsService, private cookieService: CookieService) {
+  }
+
   calculate(): void {
     this.charStatsService.calculate(this.charStats).subscribe(data => {
       this.charStatsResult = data;
     });
-  }
-
-  constructor(private charStatsService: CharStatsService) {
+    this.cookieService.set(this.cookieName, JSON.stringify(this.charStats));
   }
 
   readTextInput() {
     this.charStats = this.charStatsService.parseCharStats(this.textInput);
     this.calculate();
+  }
+
+  ngOnInit(): void {
+    if (this.cookieService.check(this.cookieName)) {
+      const cookieValue = this.cookieService.get(this.cookieName);
+      this.charStats = JSON.parse(cookieValue);
+    }
   }
 }

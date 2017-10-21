@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {CharStatsCalcComponent} from './char-stats-calc.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ClipboardModule} from 'ngx-clipboard';
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import {ClipboardModule} from 'ngx-clipboard';
     HttpClientModule,
     ClipboardModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
