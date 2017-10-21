@@ -35,7 +35,7 @@ export class CharStatsService {
   }
 
   parseCharStats(textInput: string): CharStats {
-    const myRegexp = /Jestes (.+)(?:a|i|y), (.+)(?:a|i|y), (.+)(?:a|i|y), (.+)(?:a|i|y) i (.+)(?:a|i|y)\./g;
+    const myRegexp = /Jestes (.+)[aiy], (.+)[aiy], (.+)[aiy], (.+)[aiy] i (.+)[aiy]\./g;
     const match = myRegexp.exec(textInput);
     const result = new CharStats();
     if (match) {
@@ -74,24 +74,24 @@ export class CharStatsService {
       function (a, b) {
         switch (b) {
           case 'sile':
-            result.strength = STRENGTH_ALL[9];
+            result.strength = STRENGTH_ALL[8];
             result.strengthLack = LACK_ALL[0];
             break;
           case 'zrecznosc':
-            result.strength = DEXTERITY_ALL[9];
-            result.strengthLack = LACK_ALL[0];
+            result.dexterity = DEXTERITY_ALL[8];
+            result.dexterityLack = LACK_ALL[0];
             break;
           case 'wytrzymalosc':
-            result.strength = STAMINA_ALL[9];
-            result.strengthLack = LACK_ALL[0];
+            result.stamina = STAMINA_ALL[8];
+            result.staminaLack = LACK_ALL[0];
             break;
           case 'intelekt':
-            result.strength = INTELLECT_ALL[9];
-            result.strengthLack = LACK_ALL[0];
+            result.intellect = INTELLECT_ALL[8];
+            result.intellectLack = LACK_ALL[0];
             break;
           case 'odwage':
-            result.strength = COURAGE_ALL[9];
-            result.strengthLack = LACK_ALL[0];
+            result.courage = COURAGE_ALL[8];
+            result.courageLack = LACK_ALL[0];
             break;
         }
         return '';
@@ -101,25 +101,25 @@ export class CharStatsService {
       /Twoja? (sila|zrecznosc|wytrzymalosc|intelekt|odwaga) osiag.+ nadludzki poziom\./g,
       function (a, b, c) {
         switch (b) {
-          case 'silaa':
-            result.strength = STRENGTH_ALL[10];
+          case 'sila':
+            result.strength = STRENGTH_ALL[9];
             result.strengthLack = LACK_ALL[0];
             break;
           case 'zrecznosc':
-            result.strength = DEXTERITY_ALL[10];
-            result.strengthLack = LACK_ALL[0];
+            result.dexterity = DEXTERITY_ALL[9];
+            result.dexterityLack = LACK_ALL[0];
             break;
           case 'wytrzymalosc':
-            result.strength = STAMINA_ALL[10];
-            result.strengthLack = LACK_ALL[0];
+            result.stamina = STAMINA_ALL[9];
+            result.staminaLack = LACK_ALL[0];
             break;
           case 'intelekt':
-            result.strength = INTELLECT_ALL[10];
-            result.strengthLack = LACK_ALL[0];
+            result.intellect = INTELLECT_ALL[9];
+            result.intellectLack = LACK_ALL[0];
             break;
           case 'odwaga':
-            result.strength = COURAGE_ALL[10];
-            result.strengthLack = LACK_ALL[0];
+            result.courage = COURAGE_ALL[9];
+            result.courageLack = LACK_ALL[0];
             break;
         }
         return '';

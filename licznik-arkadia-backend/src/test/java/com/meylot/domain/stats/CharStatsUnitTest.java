@@ -55,7 +55,7 @@ public class CharStatsUnitTest {
                 .withDexterityLack(Lack.BARDZO_NIEWIELE)
                 .withStamina(Stamina.NADLUDZKO_WYTRZYMALY)
                 .withStaminaLack(Lack.DUZO)
-                .withIntellect(Intellect.EPICKI_INTELEKT)
+                .withIntellect(Intellect.EPICKO_INTELIGENTNY)
                 .withIntellectLack(Lack.BARDZO_NIEWIELE)
                 .withCourage(Courage.NIEUSTRASZONY)
                 .withCourageLack(Lack.BARDZO_NIEWIELE)

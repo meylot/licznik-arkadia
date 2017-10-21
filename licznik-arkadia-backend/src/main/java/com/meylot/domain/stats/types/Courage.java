@@ -9,7 +9,7 @@ public enum Courage {
     DZIELNY,
     NIEUGIETY,
     NIEUSTRASZONY,
-    EPICKA_ODWAGA,
-    NADLUDZKA_ODWAGA;
+    EPICKO_ODWAZNY,
+    NADLUDZKO_ODWAZNY;
 
 }

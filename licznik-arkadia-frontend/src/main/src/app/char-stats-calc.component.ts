@@ -65,7 +65,8 @@ export class CharStatsCalcComponent {
   constructor(private charStatsService: CharStatsService) {
   }
 
-  readTextInput($event: Event) {
+  readTextInput() {
     this.charStats = this.charStatsService.parseCharStats(this.textInput);
+    this.calculate();
   }
 }

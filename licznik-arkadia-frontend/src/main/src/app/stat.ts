@@ -52,8 +52,8 @@ export const INTELLECT_ALL: Stat[] = [
   {id: 6, code: 'BYSTRY', name: 'Bystry'},
   {id: 7, code: 'BLYSKOTLIWY', name: 'Błyskotliwy'},
   {id: 8, code: 'GENIALNY', name: 'Genialny'},
-  {id: 9, code: 'EPICKI_INTELEKT', name: 'Epicko inteligentny'},
-  {id: 10, code: 'NADLUDZKO_INTELEKT', name: 'Nadludzko inteligentny'}
+  {id: 9, code: 'EPICKO_INTELIGENTNY', name: 'Epicko inteligentny'},
+  {id: 10, code: 'NADLUDZKO_INTELIGENTNY', name: 'Nadludzko inteligentny'}
 ];
 
 export const COURAGE_ALL: Stat[] = [
@@ -65,8 +65,8 @@ export const COURAGE_ALL: Stat[] = [
   {id: 6, code: 'DZIELNY', name: 'Dzielny'},
   {id: 7, code: 'NIEUGIETY', name: 'Nieugięty'},
   {id: 8, code: 'NIEUSTRASZONY', name: 'Nieustraszony'},
-  {id: 9, code: 'EPICKA_ODWAGA', name: 'Epicko odważny'},
-  {id: 10, code: 'NADLUDZKA_ODWAGA', name: 'Nadludzko odważny'}
+  {id: 9, code: 'EPICKO_ODWAZNY', name: 'Epicko odważny'},
+  {id: 10, code: 'NADLUDZKO_ODWAZNY', name: 'Nadludzko odważny'}
 ];
 
 export const LACK_ALL: Stat[] = [
