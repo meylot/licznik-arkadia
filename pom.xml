@@ -28,8 +28,7 @@
 		<module>licznik-arkadia-frontend</module>
 		<module>licznik-arkadia-backend</module>
 	</modules>
-	
-	<!--Chyba niepotrzebne-->
+
 	<repositories>
 		<repository>
 			<id>spring-snapshots</id>
@@ -67,5 +66,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-	
+
 </project>

@@ -13,7 +13,7 @@
 
 	<parent>
 		<groupId>com.meylot</groupId>
-		<artifactId>parent</artifactId>
+		<artifactId>licznik-arkadia</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	
