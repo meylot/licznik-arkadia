@@ -1,0 +1,17 @@
+input {
+  display: inline;
+}
+input[type='number'] {
+  width: 5em;
+}
+input[type='text'] {
+  width: 20em;
+}
+
+select {
+  margin: 0 0.2em;
+}
+
+.card {
+  display: block;
+}

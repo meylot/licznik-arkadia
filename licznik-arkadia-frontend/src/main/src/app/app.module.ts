@@ -7,17 +7,23 @@ import {CharStatsCalcComponent} from './char-stats-calc.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ClipboardModule} from 'ngx-clipboard';
 import {CookieService} from "ngx-cookie-service";
+import {AppRoutingModule} from "./app-routing.module";
+import {SkillCostComponent} from "./skill-cost.component";
+import {NouisliderModule} from "ng2-nouislider";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CharStatsCalcComponent
-  ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ClipboardModule
+    ClipboardModule,
+    AppRoutingModule,
+    NouisliderModule
+  ],
+  declarations: [
+    AppComponent,
+    CharStatsCalcComponent,
+    SkillCostComponent
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
