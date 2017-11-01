@@ -1,17 +1,8 @@
-input {
-  display: inline;
-}
-input[type='number'] {
-  width: 5em;
-}
-input[type='text'] {
-  width: 20em;
-}
-
-select {
-  margin: 0 0.2em;
-}
-
 .card {
-  display: block;
+  margin-bottom: 0.5rem;
+  padding: 1em;
+  font-size: large;
+}
+.card * {
+  font-size: large;
 }

@@ -1,15 +1,16 @@
 @import "~bootstrap-material-design/dist/css/bootstrap-material-design.min.css";
+@import "~nouislider/distribute/nouislider.min.css";
 
 html {
   height: 100%;
 }
 body {
   height: 100%;
-  background: url("assets/waterfalls.jpg") no-repeat center;
+  background: url("assets/waterfalls.jpg") no-repeat center fixed;
   background-size: cover;
 }
 
 .container {
   background-color: rgba(245, 245, 245, 0.4);
-  height: 100%;
+  min-height: 100%;
 }

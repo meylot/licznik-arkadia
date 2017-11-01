@@ -10,12 +10,11 @@ import {Money} from "./money";
   providers: [SkillCostService]
 })
 export class SkillCostComponent {
-  selectedSkill: Skill;
+  selectedSkill = SKILL_ALL[36];
   allSkills = SKILL_ALL;
-  fromLevel = 0;
-  toLevel = 30;
+  levelRange = [0, 30];
   rangeCost = new Money(0);
-  costInput: string;
+  costInput = '1 mithrylowa, 2 srebrne i 7 miedzianych monet';
   costReal = new Money(0);
   levelReal: number;
 
@@ -24,8 +23,8 @@ export class SkillCostComponent {
 
   calculateRangeCost(): void {
     if (this.selectedSkill) {
-      const fromLevel = Math.max(0, this.fromLevel);
-      const toLevel = Math.min(100, this.toLevel);
+      const fromLevel = Math.max(0, this.levelRange[0]);
+      const toLevel = Math.min(100, this.levelRange[1]);
       this.skillCostService.calculateRangeCost(this.selectedSkill, fromLevel, toLevel).subscribe(data => {
         this.rangeCost = new Money(data);
       });
@@ -38,5 +37,10 @@ export class SkillCostComponent {
       this.costReal = new Money(data.realCost);
       this.levelReal = data.level;
     });
+  }
+
+  ngOnInit(): void {
+    this.calculateRangeCost();
+    this.calculateLevel();
   }
 }

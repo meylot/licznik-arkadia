@@ -78,5 +78,6 @@ export class CharStatsCalcComponent {
       const cookieValue = this.cookieService.get(this.cookieName);
       this.charStats = JSON.parse(cookieValue);
     }
+    this.calculate();
   }
 }
