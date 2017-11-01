@@ -38,6 +38,8 @@
   overflow: hidden !important;
   text-overflow: ellipsis;
   line-height: 0.9;
+  background-color: rgb(134, 142, 150);;
+  color: white;
 }
 
 .stat-inputs-row button.selected {
