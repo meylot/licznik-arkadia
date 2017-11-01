@@ -10,6 +10,7 @@ import {CookieService} from "ngx-cookie-service";
 import {AppRoutingModule} from "./app-routing.module";
 import {SkillCostComponent} from "./skill-cost.component";
 import {NouisliderModule} from "ng2-nouislider";
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import {NouisliderModule} from "ng2-nouislider";
     CharStatsCalcComponent,
     SkillCostComponent
   ],
-  providers: [CookieService],
+  providers: [CookieService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
