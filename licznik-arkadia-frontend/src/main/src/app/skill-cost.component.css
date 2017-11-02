@@ -1,8 +1,7 @@
-.card {
-  margin-bottom: 0.5rem;
+.my-card {
   padding: 1em;
   font-size: large;
 }
-.card * {
+.my-card * {
   font-size: large;
 }

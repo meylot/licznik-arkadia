@@ -1,4 +1,4 @@
-<div class="card col-10 ml-auto mr-auto">
+<div class="my-card col-10 ml-auto mr-auto">
   <div class="form-group">
     <label for="skill">Umiejętność</label>
     <select class="custom-select mb-2 mr-sm-2 mb-sm-0" [(ngModel)]="selectedSkill" name="skill" id="skill"
@@ -8,18 +8,18 @@
   </div>
 </div>
 
-<div class="card col-10 ml-auto mr-auto">
+<div class="my-card col-10 ml-auto mr-auto">
   Koszt treningów w zakresie od {{levelRange[0]}} do {{levelRange[1]}} wynosi {{rangeCost.toString()}}.
   <nouislider [connect]="true" [min]="0" [max]="100" [config]="{margin: 1}" [step]="1" [(ngModel)]="levelRange"
               (ngModelChange)="calculateRangeCost();"></nouislider>
 </div>
 
-<div class="card col-10 ml-auto mr-auto">
+<div class="my-card col-10 ml-auto mr-auto">
   <div class="form-group">
     <label for="skillCost">
       Za ostatni trening zapłaciłeś
     </label>
-    <input class="form-control" type="text" [(ngModel)]="costInput" (ngModelChange)="calculateLevel()"/>
+    <input id="skillCost" class="form-control" type="text" [(ngModel)]="costInput" (ngModelChange)="calculateLevel()"/>
   </div>
   (dokładnie {{costReal.toString()}}), więc jej poziom to {{levelReal}}%.
 

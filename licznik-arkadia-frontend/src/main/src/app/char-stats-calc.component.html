@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="card col-10 ml-auto mr-auto">
+  <div class="my-card col-10 ml-auto mr-auto">
     <div class="row">
       <div class="text-center col-lg-6 ml-auto">
         Aby wczytać dane automatycznie, wyślij do MUDa:
@@ -117,7 +117,7 @@
 </div>
 
 <div class="row">
-  <div class="stats-output text-center card col-8 ml-auto mr-auto" *ngIf="charStatsResult">
+  <div class="stats-output text-center my-card col-8 ml-auto mr-auto" *ngIf="charStatsResult">
     <p>Suma podcech {{charStatsResult.totalSubstats}}, Poziom: {{getLevelDisplayName(charStatsResult.currentLevel)}}.</p>
     <p>Brakuje {{charStatsResult.nextThreshold - charStatsResult.totalSubstats}} do
       {{getLevelDisplayName(charStatsResult.nextLevel)}}.</p>

@@ -11,6 +11,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {SkillCostComponent} from "./skill-cost.component";
 import {NouisliderModule} from "ng2-nouislider";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import {AsciiEditorComponent} from "./ascii-editor.component";
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
   declarations: [
     AppComponent,
     CharStatsCalcComponent,
-    SkillCostComponent
+    SkillCostComponent,
+    AsciiEditorComponent
   ],
   providers: [CookieService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
