@@ -1,0 +1,16 @@
+<div class="my-card">
+  <form class = "container">
+    <div class="form-group row">
+      <label for="text-width" class="col-2 col-form-label">
+        Szerokość
+      </label>
+      <input id="text-width" class="form-control col" min="2" max="300" type="number" [(ngModel)]="width"
+             (ngModelChange)="processTextInput()" name="text-width"/>
+    </div>
+  </form>
+
+  <textarea [(ngModel)]="textInput" (ngModelChange)="processTextInput()"></textarea>
+</div>
+<div class="my-card">
+  <pre>{{textOutput}}</pre>
+</div>

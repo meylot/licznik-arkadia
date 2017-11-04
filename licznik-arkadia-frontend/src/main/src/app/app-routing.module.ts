@@ -1,8 +1,8 @@
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
-import {CharStatsCalcComponent} from "./char-stats-calc.component";
-import {SkillCostComponent} from "./skill-cost.component";
-import {AsciiEditorComponent} from "./ascii-editor.component";
+import {CharStatsCalcComponent} from "./char-stats/char-stats-calc.component";
+import {SkillCostComponent} from "./skill-cost/skill-cost.component";
+import {AsciiEditorComponent} from "./ascii-editor/ascii-editor.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/char-stats', pathMatch: 'full'},

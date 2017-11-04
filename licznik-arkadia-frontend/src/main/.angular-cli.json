@@ -24,7 +24,9 @@
       "scripts": [
         "../node_modules/jquery/dist/core.js",
         "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js"
+        "../node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js",
+        "../node_modules/ascii-string-align/index.js",
+        "../node_modules/ascii-string-split/index.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
