@@ -116,10 +116,37 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="stats-output text-center my-card col-8 ml-auto mr-auto" *ngIf="charStatsResult">
-    <p>Suma podcech {{charStatsResult.totalSubstats}}, Poziom: {{getLevelDisplayName(charStatsResult.currentLevel)}}.</p>
-    <p>Brakuje {{charStatsResult.nextThreshold - charStatsResult.totalSubstats}} do
-      {{getLevelDisplayName(charStatsResult.nextLevel)}}.</p>
+<div class="row" *ngIf="charStatsResult && charStatsResult.totalSubstats > 0">
+  <div class="col-6">
+    <div class="my-card" *ngIf="charStatsResult">
+      <div class="stat-chart">
+        <ngx-charts-bar-vertical
+          [results]="[{'name': 'Siła', 'value': charStatsResult.totalStrength}, {'name': 'Zręczność', 'value': charStatsResult.totalDexterity}, {'name': 'Wytrzymałość', 'value': charStatsResult.totalStamina}, {'name': 'Intelekt', 'value': charStatsResult.totalIntellect}, {'name': 'Odwaga', 'value': charStatsResult.totalCourage} ]"
+          [xAxis]="true"
+          [yAxis]="true"
+          [legend]="false"
+        >
+        </ngx-charts-bar-vertical>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="stats-output text-center my-card" *ngIf="charStatsResult">
+      <p>Suma podcech {{charStatsResult.totalSubstats}}, poziom: {{getLevelDisplayName(charStatsResult.currentLevel)}}.</p>
+      <p>Brakuje {{charStatsResult.nextThreshold - charStatsResult.totalSubstats}} do
+        {{getLevelDisplayName(charStatsResult.nextLevel)}}.</p>
+    </div>
+    <div class="stats-output text-center my-card">
+      <p>Stosunek cech bojowych do mentalnych.</p>
+      <p class="text-large">
+        <span *ngIf="combatSubstats >= mentalSubstats">
+          {{combatSubstats / mentalSubstats | number : '1.2-2'}} : 1
+        </span>
+        <span *ngIf="combatSubstats < mentalSubstats">
+          1 : {{mentalSubstats / combatSubstats | number : '1.2-2'}}
+        </span>
+      </p>
+    </div>
   </div>
 </div>

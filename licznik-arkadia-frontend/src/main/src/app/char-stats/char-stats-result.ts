@@ -1,8 +1,10 @@
 export class CharStatsResult {
   totalSubstats: number;
-  combatSubstats: number;
-  mentalSubstats: number;
-  nextThreshold: number;
+  totalStrength: number;
+  totalDexterity: number;
+  totalStamina: number;
+  totalIntellect: number;
+  totalCourage: number;
   currentLevel: string;
   nextLevel: string;
 }

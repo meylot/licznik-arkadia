@@ -6,12 +6,12 @@ html {
 }
 body {
   height: 100%;
-  background: url("assets/waterfalls.jpg") no-repeat center fixed;
+  background: url("assets/sky3.jpg") no-repeat center fixed;
   background-size: cover;
 }
 
 .main-container {
-  background-color: rgba(245, 245, 245, 0.4);
+  background-color: rgba(245, 245, 245, 0.8);
   min-height: 100%;
 }
 

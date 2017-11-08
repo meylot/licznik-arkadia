@@ -37,8 +37,11 @@ public class CharStatsUnitTest {
         CharStatsResult result = charStats.calculateCharStats();
         // then
         MatcherAssert.assertThat(result.getTotalSubstats(), is(135));
-        MatcherAssert.assertThat(result.getCombatSubstats(), is(113));
-        MatcherAssert.assertThat(result.getMentalSubstats(), is(22));
+        MatcherAssert.assertThat(result.getTotalStrength(), is(39));
+        MatcherAssert.assertThat(result.getTotalDexterity(), is(38));
+        MatcherAssert.assertThat(result.getTotalStamina(), is(36));
+        MatcherAssert.assertThat(result.getTotalIntellect(), is(10));
+        MatcherAssert.assertThat(result.getTotalCourage(), is(12));
         MatcherAssert.assertThat(result.getNextThreshold(), not(is(eq((0)))));
         MatcherAssert.assertThat(result.getCurrentLevel(), is(notNullValue()));
         MatcherAssert.assertThat(result.getNextLevel(), is(notNullValue()));

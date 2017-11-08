@@ -20,9 +20,13 @@ export class CharStatsCalcComponent {
   courageLevels = COURAGE_ALL;
   lackLevels = LACK_ALL;
 
-  charStats = new CharStats();
+  charStats: CharStats = new CharStats();
   charStatsResult: CharStatsResult;
   textInput: string;
+
+  combatSubstats: number;
+  mentalSubstats: number;
+
   private cookieName = 'char-stats';
 
   getLevelDisplayName(level: string): string {
@@ -64,8 +68,10 @@ export class CharStatsCalcComponent {
   calculate(): void {
     this.charStatsService.calculate(this.charStats).subscribe(data => {
       this.charStatsResult = data;
+      this.combatSubstats = this.charStatsResult.totalStrength + this.charStatsResult.totalDexterity + this.charStatsResult.totalStamina;
+      this.mentalSubstats = this.charStatsResult.totalIntellect + this.charStatsResult.totalCourage;
     });
-    this.cookieService.set(this.cookieName, JSON.stringify(this.charStats));
+    this.cookieService.set(this.cookieName, JSON.stringify(this.charStats), 90);
   }
 
   readTextInput() {

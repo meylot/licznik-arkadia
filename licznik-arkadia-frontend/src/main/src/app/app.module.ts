@@ -12,6 +12,8 @@ import {SkillCostComponent} from "./skill-cost/skill-cost.component";
 import {NouisliderModule} from "ng2-nouislider";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {AsciiEditorComponent} from "./ascii-editor/ascii-editor.component";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   imports: [
@@ -20,7 +22,9 @@ import {AsciiEditorComponent} from "./ascii-editor/ascii-editor.component";
     HttpClientModule,
     ClipboardModule,
     AppRoutingModule,
-    NouisliderModule
+    NouisliderModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,

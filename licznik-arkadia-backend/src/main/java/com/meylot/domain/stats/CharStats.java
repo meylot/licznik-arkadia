@@ -74,16 +74,22 @@ public class CharStats {
     }
 
     public CharStatsResult calculateCharStats() {
-        int combatSubstats = calculateCombatStats();
-        int mentalSubstats = calculateMentalStats();
-        int totalSubstats = combatSubstats + mentalSubstats;
+        int totalStrength = strength.ordinal() * 5 + strengthLack.ordinal();
+        int totalDexterity = dexterity.ordinal() * 5 + dexterityLack.ordinal();
+        int totalStamina = stamina.ordinal() * 5 + staminaLack.ordinal();
+        int totalIntellect = intellect.ordinal() * 5 + intellectLack.ordinal();
+        int totalCourage = courage.ordinal() * 5 + courageLack.ordinal();
+        int totalSubstats = totalStrength + totalDexterity + totalStamina + totalIntellect + totalCourage;
         Map.Entry<Integer, ExpLevel> lower = levelMap.floorEntry(totalSubstats);
         Map.Entry<Integer, ExpLevel> higher = levelMap.higherEntry(totalSubstats);
 
         CharStatsResult result = new CharStatsResult();
+        result.setTotalStrength(totalStrength);
+        result.setTotalDexterity(totalDexterity);
+        result.setTotalStamina(totalStamina);
+        result.setTotalIntellect(totalIntellect);
+        result.setTotalCourage(totalCourage);
         result.setTotalSubstats(totalSubstats);
-        result.setCombatSubstats(combatSubstats);
-        result.setMentalSubstats(mentalSubstats);
         result.setCurrentLevel(lower.getValue());
         if (higher.getValue() == NONE) {
             result.setNextLevel(result.getCurrentLevel());
@@ -93,21 +99,6 @@ public class CharStats {
             result.setNextThreshold(higher.getKey());
         }
         return result;
-    }
-
-    private int calculateMentalStats() {
-        int sum = 0;
-        sum += intellect.ordinal() * 5 + intellectLack.ordinal();
-        sum += courage.ordinal() * 5 + courageLack.ordinal();
-        return sum;
-    }
-
-    private int calculateCombatStats() {
-        int sum = 0;
-        sum += strength.ordinal() * 5 + strengthLack.ordinal();
-        sum += dexterity.ordinal() * 5 + dexterityLack.ordinal();
-        sum += stamina.ordinal() * 5 + staminaLack.ordinal();
-        return sum;
     }
 
     public static Builder newBuilder() {

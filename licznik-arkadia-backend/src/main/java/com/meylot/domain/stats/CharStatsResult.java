@@ -4,14 +4,57 @@ import com.meylot.domain.stats.types.ExpLevel;
 
 public class CharStatsResult {
 
+    private int totalStrength;
+    private int totalDexterity;
+    private int totalStamina;
+    private int totalIntellect;
+    private int totalCourage;
     private int totalSubstats;
-    private int combatSubstats;
-    private int mentalSubstats;
     private int nextThreshold;
     private ExpLevel currentLevel;
     private ExpLevel nextLevel;
 
     public CharStatsResult() {
+    }
+
+    public int getTotalStrength() {
+        return totalStrength;
+    }
+
+    public void setTotalStrength(int totalStrength) {
+        this.totalStrength = totalStrength;
+    }
+
+    public int getTotalDexterity() {
+        return totalDexterity;
+    }
+
+    public void setTotalDexterity(int totalDexterity) {
+        this.totalDexterity = totalDexterity;
+    }
+
+    public int getTotalStamina() {
+        return totalStamina;
+    }
+
+    public void setTotalStamina(int totalStamina) {
+        this.totalStamina = totalStamina;
+    }
+
+    public int getTotalIntellect() {
+        return totalIntellect;
+    }
+
+    public void setTotalIntellect(int totalIntellect) {
+        this.totalIntellect = totalIntellect;
+    }
+
+    public int getTotalCourage() {
+        return totalCourage;
+    }
+
+    public void setTotalCourage(int totalCourage) {
+        this.totalCourage = totalCourage;
     }
 
     public int getTotalSubstats() {
@@ -20,22 +63,6 @@ public class CharStatsResult {
 
     public void setTotalSubstats(int totalSubstats) {
         this.totalSubstats = totalSubstats;
-    }
-
-    public int getCombatSubstats() {
-        return combatSubstats;
-    }
-
-    public void setCombatSubstats(int combatSubstats) {
-        this.combatSubstats = combatSubstats;
-    }
-
-    public int getMentalSubstats() {
-        return mentalSubstats;
-    }
-
-    public void setMentalSubstats(int mentalSubstats) {
-        this.mentalSubstats = mentalSubstats;
     }
 
     public int getNextThreshold() {
