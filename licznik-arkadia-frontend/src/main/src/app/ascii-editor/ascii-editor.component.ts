@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {TextProcessor} from "./text-processor";
+import {AsciiFrame} from "./ascii-frame";
+import {FrameModel} from "./frame-model";
 
 @Component({
   selector: 'ascii-editor',
@@ -8,21 +10,42 @@ import {TextProcessor} from "./text-processor";
 })
 export class AsciiEditorComponent {
 
-  textInput: string = 'Yenearsira tula, hama neva i\'naur amin uuma malia ama tyelka. Amin khiluva lle a\' gurtha ar\' thar Telcoerea tanya farnuva Agaryulnaerea. Naugiaur Tel\'Sindavathar Belegerea lova tyelka. Tua amin! lle maa quel ai\' atar Urime. Peredhil Hodoerea ram en\' templa amin fauka.\n' +
+  textInput: string = 'Dear Frodo,\n' +
     '\n' +
-    'Lle ista amin quella no\' amin rima ten\'ta! Narquelie ro caele beika fion laure sereg. Lle lakwenien maien quel n\'quel mani naa essa en lle ram en\' templa. Tanka tel\' taurnin pelekta yassen runya. \'Ksherea mani naa lle umien? Aa\' menealle nauva calen ar\' malta lova termara en\' templa lle lava manka lle merna. Tel\'Domeduathea ai\' atar Narvinye auta miqula orqu.\n' +
+    'Bad news has reached me here. I must go off at once. You had better leave Bag End soon, and get out of the Shire before the end of July at latest. I will return as soon as I can; and I will follow you, if I find that you are gone. Leave a message for me here, if you pass through Bree. You can trust the landlord (Butterbur). You may meet a friend of mine on the Road: a Man, lean, dark, tall, by some called Strider. He knows our business and will help you. Make for Rivendell. There I hope we may meet again. If I do not come, Elrond will advise you.\n' +
     '\n' +
-    'Lle naa vanima amin hiraetha sen Dinaerea. Ram en\' \'kshapsa lle vesta Glamhoth lissenen ar\' maska\'lalaith tenna\' lye omentuva. Parm templa tengwa Mith\'quessir lanta kaima mankoi lle irma sint? Uialtum mankoi lle irma sint pela tanya tempa aiguldur amin nauva auta yeste\'. Amin naa lle nai thanga yassen templa lle naa belegohtar tula uialtum.';
+    '[right]\n' +
+    'Yours in haste\n' +
+    'GANDALF.\n' +
+    '\n' +
+    '[justify]\n' +
+    'PS. I hope Butterbur sends this promptly. A worthy man, but his memory is like a lumber-room: thing wanted always buried. If he forgets, I shall roast him.';
   textOutput: string;
+  framesMap = {};
+  frames = ['Brak', 'Pergamin', 'Minimum'];
+  frame: FrameModel;
+  selectedFrame: string = 'Pergamin';
   width: number = 65;
+  advancedFrame: boolean = false;
+
+  changeFrame() {
+    this.frame = this.framesMap[this.selectedFrame];
+    this.processTextInput();
+  }
 
   processTextInput() {
     let processor = new TextProcessor(this.width);
     processor.process(this.textInput);
-    this.textOutput = processor.build();
+    let asciiFrame: AsciiFrame = new AsciiFrame(this.frame);
+    this.textOutput = asciiFrame.renderFramedText(processor);
   }
 
   ngOnInit(): void {
+    this.framesMap['Brak'] = new FrameModel('', '', '', '', '', '', '', '');
+    this.framesMap['Pergamin'] = new FrameModel('   __\n / \\ \n|   |\n \\_ |', '_\n\n', '\n\\    \n |   ', '    |   ', '   |   ', '    |   \n    |  /\n    \\_/_', '_\n\n_', '|___\n   /\n__/ ');
+    this.framesMap['Minimum'] = new FrameModel('.', '-', '.', '| ', ' |', '\'', '-', '\'');
+    this.frame = this.framesMap['Pergamin'];
+
     this.processTextInput();
   }
 

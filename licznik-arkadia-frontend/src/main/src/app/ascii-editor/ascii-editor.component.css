@@ -1,7 +1,26 @@
 textarea {
+  font-family: monospace;
+  font-size: small;
+}
+
+textarea.editor {
   width: 100%;
   height: 10em;
 }
 .my-card {
   padding: 1em;
+}
+
+.frame-def textarea {
+  height: 4rem;
+  padding: 0;
+}
+
+.frame-def label {
+  font-size: x-small;
+  margin: 0;
+}
+
+pre {
+  line-height: 1.25;
 }

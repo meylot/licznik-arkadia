@@ -1,12 +1,16 @@
 import {TextLine} from "./text-line";
 
 export class TextProcessor {
-  lines: TextLine[] = [];
-  align: string = 'justify';
-  width: number;
+  private lines: TextLine[] = [];
+  private align: string = 'justify';
+  private _width: number;
 
   constructor(width: number) {
-    this.width = width;
+    this._width = width;
+  }
+
+  get width(): number {
+    return this._width;
   }
 
   process(buffer: string): void {
@@ -24,7 +28,7 @@ export class TextProcessor {
     let words = paragraph.split(/\s+/);
     let currentLine: TextLine = new TextLine(this.align);
     for (const word of words) {
-      if (currentLine.length() + 1 + word.length <= this.width) {
+      if (currentLine.length() + 1 + word.length <= this._width) {
         currentLine.addWord(word);
       } else {
         currentLine.isWrapped = true;
@@ -51,11 +55,10 @@ export class TextProcessor {
     return true;
   }
 
-  build(): string {
-    let output: string = '';
+  buildLines(): string[] {
+    let output: string[] = [];
     for (let line of this.lines) {
-      output += line.build(this.width);
-      output += '\n'
+      output.push(line.build(this._width));
     }
     return output;
   }
