@@ -3,16 +3,19 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="form-group">
-          <label for="text-width">Szerokość</label>
+          <label for="text-width">Szerokość tekstu</label>
           <input id="text-width" class="form-control" min="2" max="300" type="number" [(ngModel)]="width"
                  (ngModelChange)="processTextInput()" name="text-width"/>
         </div>
         <div class="form-group">
           <label for="selectedFrame">Ramka</label>
           <select class="form-control" [(ngModel)]="selectedFrame" name="selectedFrame" id="selectedFrame"
-                  (ngModelChange)="changeFrame();">
+                  (ngModelChange)="selectFrame();">
             <option *ngFor="let f of frames" [ngValue]="f">{{f}}</option>
           </select>
+        </div>
+        <div class="form-group" [ngClass]="{'alert-danger': maxWidth>=80}">
+          Całkowita szerokość: {{maxWidth}}
         </div>
       </div>
       <div class="col-lg-6">
@@ -45,9 +48,6 @@
                       name="left" id="left"></textarea>
           </div>
           <div class="col">
-            <button>
-              Kopiuj ramkę (todo)
-            </button>
           </div>
           <div class="col">
             <label for="right">Prawo</label>
@@ -69,6 +69,17 @@
             <label for="bottomRight">Prawy dół</label>
             <textarea class="form-control" [(ngModel)]="frame.bottomRight" (ngModelChange)="changeFrame()"
                       name="bottomRight" id="bottomRight"></textarea>
+          </div>
+        </div>
+        <div class="row" *ngIf="advancedFrame">
+          <div class="col">
+            <div class="form-inline mt-1">
+              <label>Kod:</label>
+              <input class="form-control ml-1 mr-1" style="font-family: monospace" type="text" [value]="getFrameAsJson()"
+                     #frameAsJson/>
+              <button class="btn" [ngxClipboard]="frameAsJson">Kopiuj</button>
+              <button class="btn" (click)="setFrameFromJson(frameAsJson.value)">Wczytaj</button>
+            </div>
           </div>
         </div>
       </div>

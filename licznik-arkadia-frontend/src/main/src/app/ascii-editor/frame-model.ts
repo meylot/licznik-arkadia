@@ -19,4 +19,8 @@ export class FrameModel {
     this.bottom = bottom;
     this.bottomRight = bottomRight;
   }
+
+  cloneFrame() : FrameModel {
+    return new FrameModel(this.topLeft, this.top, this.topRight, this.left, this.right, this.bottomLeft, this.bottom, this.bottomRight);
+  }
 }

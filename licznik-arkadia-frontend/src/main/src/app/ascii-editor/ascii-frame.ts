@@ -87,7 +87,7 @@ export class AsciiFrame {
   private renderBottom(output: string[]) {
     const totalWidth = output[0].length;
     let lineNumber: number = 0;
-    if (!this.bottomRight.isEmpty()) {
+    if (!this.bottomLeft.isEmpty()) {
       for (let s of this.bottomLeft.text) {
         const index = (output.length - this.bottomLeft.height + lineNumber);
         output[index] = AsciiFrame.replaceRange(output[index], 0, s.length, s);
@@ -102,7 +102,7 @@ export class AsciiFrame {
         lineNumber++;
       }
     }
-    if (!this.bottomLeft.isEmpty()) {
+    if (!this.bottomRight.isEmpty()) {
       lineNumber = 0;
       for (let s of this.bottomRight.text) {
         const index = (output.length - this.bottomRight.height + lineNumber);

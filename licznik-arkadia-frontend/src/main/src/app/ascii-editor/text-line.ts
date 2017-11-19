@@ -74,14 +74,16 @@ export class TextLine {
     spaces[0] = 0;
     spaces[spaces.length - 1] = 0;
     let dif = Math.max(0, width - this.length());
+    // increase all spaces at once
     while (dif > this.words.length - 1) {
       for (let i = 1; i < this.words.length; i++) {
         spaces[i]++;
         dif--;
       }
     }
+    // add remaining spaces
     for (let i = 0; i < dif; i++) {
-      const target = i / (dif + 1);
+      const target = i / dif;
       const index = Math.round(target * (spaces.length - 2) + 1);
       spaces[index]++;
     }
